@@ -45,7 +45,7 @@ This project shows how you can dockerize a simple Prefect project. The project s
 └── README.md
 ```
 
-##### Project Overview
+### Project Overview
 
 ---
 
@@ -92,8 +92,8 @@ I have podman installed incase you have docker replace 'podman' with 'docker' in
 1. Clone the repo
    
    ```bash
-   git clone 
-   cd 
+   git clone https://github.com/Mbatha-Marvin/Prefect-Postgres-Docker-Template.git
+   cd Prefect-Postgres-Docker-Template
    ```
 
 2. Rename the example.env file to .env
@@ -106,7 +106,7 @@ I have podman installed incase you have docker replace 'podman' with 'docker' in
    podman-compose up --build -d
    ```
 
-5.  If you used the defaults in the .env file, go to your browser and go to:
+5. If you used the defaults in the .env file, go to your browser and go to:
    
    ```bash
    http://localhost:4200
