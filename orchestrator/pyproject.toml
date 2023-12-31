@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "prefect-app"
+version = "0.1.0"
+description = "This is a demo project showing how to use prefect, postgres, and compose to create a simple pipeline orchestrator. The project will create a postgres service, prefect server and a prefect flow deployment"
+authors = ["Mbatha-Marvin"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<=3.13"
+prefect = "^2.14.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
