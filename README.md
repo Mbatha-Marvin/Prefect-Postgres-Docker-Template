@@ -2,7 +2,7 @@
 
 ---
 
-This project shows how you can dockerize a simple Prefect project. The project serves the flows using the serve utility in prefect. You can serve multiple flows and pipelines using the serve utilty in prefect.
+This project shows how you can dockerize a simple Prefect project and deploy the flows using the serve utility in prefect. 
 
 ***Note there are various ways to structure your prefect projects to best fit your needs***
 
