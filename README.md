@@ -2,40 +2,38 @@
 
 ---
 
-This project shows how you can dockerize a simple Prefect project. The project serves the flows using the serve utility in prefect. You can serve multiple flows and pipelines using the serve utilty in prefect. 
+This project shows how you can dockerize a simple Prefect project. The project serves the flows using the serve utility in prefect. You can serve multiple flows and pipelines using the serve utilty in prefect.
 
 ***Note there are various ways to structure your prefect projects to best fit your needs***
 
-### Project Structure
+## Project Structure
 
 ---
 
 ```bash
+.
 ├── orchestrator
 │   ├── prefect_app
-│   │   ├── app
-│   │   │   ├── core
-│   │   │   │   └── __init__.py
-│   │   │   ├── __init__.py
-│   │   │   ├── pipelines
-│   │   │   │   ├── hello_world
-│   │   │   │   │   ├── deployment.py
-│   │   │   │   │   ├── flows
-│   │   │   │   │   │   ├── __init__.py
-│   │   │   │   │   │   └── main_flow.py
-│   │   │   │   │   ├── __init__.py
-│   │   │   │   │   ├── tasks
-│   │   │   │   │   │   ├── hello.py
-│   │   │   │   │   │   └── __init__.py
-│   │   │   │   │   └── utils
-│   │   │   │   │       ├── date.py
-│   │   │   │   │       └── __init__.py
-│   │   │   │   └── __init__.py
-│   │   │   └── utils
-│   │   │       └── __init__.py
-│   │   └── __init__.py
+│   │   ├── core
+│   │   │   ├── config.py
+│   │   │   └── __init__.py
+│   │   ├── deployments
+│   │   │   └── hello_world.py
+│   │   ├── flows
+│   │   │   ├── hello_world.py
+│   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── pipelines
+│   │   │   └── __init__.py
+│   │   ├── tasks
+│   │   │   ├── hello.py
+│   │   │   └── __init__.py
+│   │   └── utils
+│   │       ├── date.py
+│   │       └── __init__.py
 │   ├── __init__.py
 │   ├── main.py
+│   ├── poetry.lock
 │   ├── pyproject.toml
 │   ├── README.md
 │   └── requirements.txt
@@ -49,19 +47,21 @@ This project shows how you can dockerize a simple Prefect project. The project s
 
 ---
 
-***orchestrator/prefect_app*** - project base directory. I used poetry to initialize this project. 
+***orchestrator/prefect_app*** - project base directory. I used poetry to initialize this project.
 
 ***orchestrator/prefect_app/main.py*** - the entry point for the prefect deployment. If this file is not present in your project the prefect_deployments service will likely fail. If you decide to move it ensure you adjust your imports accordingly.
 
-***orchestrator/prefect_app/app*** -  prefect flows are defined here .You can structure this module to fit your standards and preference. If you do restructure it, make the imports in your project reflect your project structure. 
+***orchestrator/prefect_app/flows*** -  prefect flows and subflows are defined here .
 
-***orchestrator/prefect_app/app/core*** - stores project-wide configuration files
+***orchestrator/prefect_app/tasks*** - prefect tasks for your various flows are defined here .
 
-***orchestrator/prefect_app/app/utils*** - stores project-wide utility files
+***orchestrator/prefect_app/core*** - stores project-wide configuration files
 
-***orchestrator/prefect_app/app/pipelines*** - stores pipelines and the supporting files and modules.
+***orchestrator/prefect_app/utils*** - stores project-wide utility files
 
-**The compose file defines 3 services:** 
+***orchestrator/prefect_app/pipelines*** - for complex pipelines, you can create pipelines in this folder for a more organization
+
+**The compose file defines 3 services:**
 
 1. prefect_database -  stores Prefect metadata
 
@@ -87,7 +87,7 @@ To successfully run this project you need to have the following installed and ru
 
 I have podman installed incase you have docker replace 'podman' with 'docker' in all the commands.
 
-##### Steps:
+##### Steps
 
 1. Clone the repo
    
