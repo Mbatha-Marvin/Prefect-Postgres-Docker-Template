@@ -1,5 +1,5 @@
 from prefect import task
-from prefect_app.app.pipelines.hello_world.utils.date import get_current_date
+from prefect_app.utils.date import get_current_date
 
 
 @task(

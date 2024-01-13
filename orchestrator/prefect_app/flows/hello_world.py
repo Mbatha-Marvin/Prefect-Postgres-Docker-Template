@@ -1,5 +1,5 @@
 from prefect import flow
-from prefect_app.app.pipelines.hello_world.tasks.hello import (
+from prefect_app.tasks.hello import (
     hello_world_start,
     hello_world_get_date,
     hello_world_log_data_and_greeting,
